@@ -1,0 +1,24 @@
+$def with (name)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset='utf-8'>
+        <title>Puzzle - 安居客移动协作平台 </title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+    </head>
+    <body>
+    <h3>Mobile Data Center</h3>
+    <hr/>
+$if name:
+    Hi, <em>$name</em>, Welcome to Mobile Data Center, You can monitor anjuke mobile data here, and it help you analysis the data, guide your headline~
+$else:
+    <ul>
+        <li><a href="">App数据</a></li>
+        <li><a href="">二手房数据</a></li>
+        <li><a href="/rescutime">时间管理</a></li>
+    </ul>
+    </body>
+</html>
