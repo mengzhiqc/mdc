@@ -1,5 +1,6 @@
 import web
-render = web.template.render("templates")
+render = web.template.render("templates",base="layout")
+
 class index:
     def GET(self):
         i = web.input(name=None)
