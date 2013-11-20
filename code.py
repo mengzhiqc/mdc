@@ -2,7 +2,7 @@ import web
 from config.url import urls
 
 
-app = web.application(urls,globals())
+app = web.application(urls,globals(),True)
 
 config = web.storage(
 	email = 'lenyemeng@anjukeinc.com',
