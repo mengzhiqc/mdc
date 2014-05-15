@@ -18,7 +18,7 @@ $var title: 移动设备管理
 				<th>使用者</th>
 				<th>设备类型</th>
 				<th>所属团队</th>
-				<th>说明</th>
+				<th>唯一识别吗</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -29,7 +29,7 @@ $var title: 移动设备管理
 				<td>$device.device_user</td>
 				<td>$data['deviceTypeDic'][device.device_type]</td>
 				<td>$data['deviceBelongDic'][device.belong]</td>
-				<td>$device.description</td>
+				<td>$device.device_udid</td>
 				<td><a href="/device/edit/$device.id">编辑</a>&nbsp;<a id="deleteBtn" href="/device/delete/$device.id">删除</a></td>
 
 			</tr>
