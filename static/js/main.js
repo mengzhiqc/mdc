@@ -1,12 +1,11 @@
 $(document).ready(function(){
-	$('#uploadImage').click(function(){
-		$('#imageHandleForm').ajaxSubmit({
-			'url':'/upload',
-			'method':'POST',
-			'success':function(data){
-				$('#displayImage').empty().html(data);
-			}
-		});
-		return false;
-	});	
+
+	$('#deleteBtn').bind('click',function(){
+
+		if(!confirm("确定要删除这条记录么？")){
+			return false;
+		}
+		
 	});
+	});
+

@@ -1,8 +1,40 @@
-$def with (name)
-$var title: 欢迎光临 
+$def with (data)
+$var title: 移动设备管理
 
 <div class="row">
-<div class="span6 offset1">
-这是Anjuke Mobile Data Center的第一版，谨以此为纪念！
+	<div class ="operationRow span5 offset1">
+		<a class="btn btn-primary" href="/device/new">添加设备</a>
+	</div>
+	<div class = "span6"></div>
 </div>
+<div class="row">
+	<div class='span11 offset1'>
+	<h4></h4>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>设备名称</th>
+				<th>使用者</th>
+				<th>设备类型</th>
+				<th>所属团队</th>
+				<th>说明</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			$for device in data['devices']:
+			<tr>
+				<td>$device.device_name</td>
+				<td>$device.device_user</td>
+				<td>$data['deviceTypeDic'][device.device_type]</td>
+				<td>$data['deviceBelongDic'][device.belong]</td>
+				<td>$device.description</td>
+				<td><a href="/device/edit/$device.id">编辑</a>&nbsp;<a id="deleteBtn" href="/device/delete/$device.id">删除</a></td>
+
+			</tr>
+		
+		</tbody>
+	</table>
+	</div>
 </div>

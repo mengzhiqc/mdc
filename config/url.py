@@ -2,10 +2,8 @@
 controllerPrefix = 'controllers.'
 urls = (
     '/', controllerPrefix + 'index.index',
-    '/chart/(.*)',controllerPrefix + 'chart.index',
-    '/rescutime',controllerPrefix + 'my.index',
-    '/prd',controllerPrefix + 'prd.index',
-    '/prd/edit/(.*)/',controllerPrefix + 'prd.edit',
-    '/resizepic', controllerPrefix + 'prd.resizepic',
-    '/upload', controllerPrefix + 'prd.upload',
+    '/device/new', controllerPrefix + 'index.new',
+    '/device/create',controllerPrefix + 'index.create',
+    '/device/edit/(.*)',controllerPrefix + 'index.edit',
+    '/device/delete/(.*)',controllerPrefix + 'index.delete',
         )

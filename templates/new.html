@@ -1,0 +1,108 @@
+$def with (data)
+$var title: 添加/更新设备 
+$def showDeviceType():
+	$if data['deviceInfo'] and data['deviceInfo'].device_type==1 :
+		<option value="1" selected>手机</option>
+	$else:
+		<option value="1">手机</option>
+
+	$if data['deviceInfo'] and data['deviceInfo'].device_type==2 :
+		<option value="2" selected>平板</option>
+	$else:
+		<option value="2">平板</option>	
+
+	$if data['deviceInfo'] and data['deviceInfo'].device_type==3 :
+		<option value="3" selected>主机</option>
+	$else:
+		<option value="3">主机</option>
+
+	$if data['deviceInfo'] and data['deviceInfo'].device_type==4 :
+		<option value="4" selected>显示器</option>
+	$else:
+		<option value="4">显示器</option>
+
+
+$def showDeviceBelong():
+	$if data['deviceInfo'] and data['deviceInfo'].belong==1 :
+		<option value="1" selected>iOS团队</option>
+	$else:
+		<option value="1">iOS团队</option>
+
+	$if data['deviceInfo'] and data['deviceInfo'].belong==2 :
+		<option value="2" selected>android团队</option>
+	$else:
+		<option value="2">android团队</option>	
+
+	$if data['deviceInfo'] and data['deviceInfo'].belong==3 :
+		<option value="3" selected>测试团队</option>
+	$else:
+		<option value="3">测试团队</option>
+
+	$if data['deviceInfo'] and data['deviceInfo'].belong==4 :
+		<option value="4" selected>Api团队</option>
+	$else:
+		<option value="4">Api团队</option>
+
+
+
+<div class="row">
+	<div class='span11 offset1'>
+	<h4>添加设备</h4>
+	</div>
+</div>
+
+$def actionUrl():
+	$if data['deviceInfo']:
+		/device/edit/$data['deviceInfo'].id 
+	$else:
+		/device/create
+
+<div class="row">
+	<div class="span11 offset1">
+		<form role="form" method="post" action="$:actionUrl()">
+			<div class="form-group">
+				<label for="device_name">设备名称:</label>
+$def deviceName():$if data['deviceInfo']:$data['deviceInfo'].device_name
+				<input type="text" class="form-control" id="device_name" name="device_name" value="$:deviceName()" placeholder="Enter Device Name" />
+			</div>
+
+			<div class="form-group">
+				<label for="device_user">使用人:</label>
+$def deviceUser():$if  data['deviceInfo']:$data['deviceInfo'].device_user
+				<input type="text" class="form-control" id="device_user" name="device_user" value="$:deviceUser()" placeholder="Enter Device User" />
+			</div>
+
+			<div class="form-group">
+				<label for="udid">唯一识别码:</label>
+$def deviceUdid():$if  data['deviceInfo']:$data['deviceInfo'].udid
+				<input type="text" class="form-control" id="device_user" name="device_user" value="$:deviceUdid()" placeholder="Enter Device Udid" />
+			</div>			
+
+			<div class="form-group">
+				<label for="device_type">设备类型:</label>
+				<select class="form-control" id="device_type" name="device_type">
+					$:showDeviceType()
+				</select>
+
+			</div>
+
+			<div class="form-group">
+				<label for="belong">所属团队:</label>
+				<select class="form-control" id="belong" name="belong">
+					$:showDeviceBelong()
+				</select>
+
+			</div>
+
+			<div class="form-group">
+				<label for="description">说明:</label>
+
+$def description():$if data['deviceInfo']:$data['deviceInfo'].description						
+				<textarea id="description" rows=5 placeholder="请在这里输入描述文字" name="description">$:description()</textarea>
+			</div>
+
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+	</div>
+
+</div>
