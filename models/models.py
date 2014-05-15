@@ -39,18 +39,18 @@ class Devices(Base):
 	create_time = Column(DateTime,default=datetime.datetime.utcnow)
 	updated_time = Column(DateTime)
 
-	def __init__(self,deviceName,deviceUser,deviceType,udid,belong,description,createTime):
+	def __init__(self,deviceName,deviceUser,deviceType,device_udid,belong,description,createTime):
 		self.device_name = deviceName
 		self.device_user = deviceUser
 		self.device_type = deviceType
-		self.udid = udid
+		self.device_udid = device_udid
 		self.belong = belong
 		self.description = description
 		self.create_time = createTime
 		self.updated_time = createTime
 
 	def __repr__(self):
-		return "<Device('%s','%s','%s','%s','%s')>" %(self.device_name,self.device_user,self.udid,self.device_type,self.belong)
+		return "<Device('%s','%s','%s','%s','%s')>" %(self.device_name,self.device_user,self.device_udid,self.device_type,self.belong)
 
 devices_table = Devices.__tablename__
 metadata = Base.metadata

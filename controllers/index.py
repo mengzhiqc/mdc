@@ -28,12 +28,13 @@ class create:
 		i = web.input()
 		deviceName = i.get('device_name')
 		deviceUser = i.get('device_user')
+		print deviceUser
 		deviceType = i.get('device_type')
-		udid = i.get('udid')
+		device_udid = i.get('device_udid')
 		belong = i.get('belong')
 		description = i.get('description')
 		createTime = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
-		device = Devices(deviceName=deviceName,deviceUser=deviceUser,udid=udid,deviceType=deviceType,belong=belong,description=description,createTime=createTime);
+		device = Devices(deviceName=deviceName,deviceUser=deviceUser,device_udid=device_udid,deviceType=deviceType,belong=belong,description=description,createTime=createTime);
 		web.ctx.orm.add(device)
 		raise web.seeother('/')
 
@@ -57,8 +58,8 @@ class edit:
 			preDevice.device_user = i.get('device_user')
 			isChanged = 1
 
-		if preDevice.udid != i.get('udid'):
-			preDevice.udid = i.get('udid')
+		if preDevice.device_udid != i.get('device_udid'):
+			preDevice.device_udid = i.get('device_udid')
 			isChanged = 1
 
 		if preDevice.device_type != i.get('device_type'):
