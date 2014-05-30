@@ -6,7 +6,7 @@ from sqlalchemy.orm import scoped_session,sessionmaker
 import web
 import datetime
 
-engine = create_engine('mysql://tools:tools@localhost:3306/tools?charset=utf8',encoding="utf-8",echo=True)
+engine = create_engine('mysql://tools:tools@localhost:3306/tools?charset=utf8',encoding="utf-8",echo=True,pool_recycle=7200)
 
 def load_sqla(handler):
     web.ctx.orm = scoped_session(sessionmaker(bind=engine))
@@ -20,7 +20,7 @@ def load_sqla(handler):
         raise
     finally:
         web.ctx.orm.commit()
-        # If the above alone doesn't work, uncomment 
+        # If the above alone doesn't work, uncomment
         # the following line:
         #web.ctx.orm.expunge_all()
 
